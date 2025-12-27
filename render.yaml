@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: bhanu-resume-tailor
+    env: python
+    buildCommand: pip install -r requirements.txt && python -m nltk.downloader punkt stopwords punkt_tab
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
